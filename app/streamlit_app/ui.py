@@ -1,6 +1,6 @@
 import os
 import re
-import time
+import time as pytime
 import plotly.express as px
 import streamlit as st
 import streamlit.components.v1 as components
@@ -104,7 +104,7 @@ res_col1, res_col2 = st.columns([1,1])
 # ------------------ PREDICTION ------------------
 if predict_btn:
     with st.spinner("Prédiction en cours..."):
-        t0 = time.time()
+        t0 = pytime.time()
         try:
             resp = predict_one(tweet_text)
             if resp["status_code"] == 200 and resp["json"] is not None:
@@ -145,7 +145,7 @@ if explain_btn:
     progress = st.progress(0, text="LIME en cours…")
     try:
         for i in range(5):
-            time.sleep(0.2)
+            pytime.sleep(0.2)
             progress.progress(min((i+1)*20, 100), text="LIME en cours…")
 
         with st.spinner("Génération de l'explication LIME…"):
