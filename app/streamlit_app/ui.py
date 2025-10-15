@@ -120,7 +120,7 @@ if predict_btn:
                     else:
                         st.error(f"😞 **NÉGATIF** ({conf:.1%})")
                     st.markdown(f'<span class="badge">p(Positif): {p_pos:.2f}</span> <span class="badge">p(Négatif): {p_neg:.2f}</span>', unsafe_allow_html=True)
-                    st.caption(f"Durée: {(time.time()-t0):.2f}s")
+                    st.caption(f"Durée: {(pytime.time()-t0):.2f}s")
 
                 with res_col2:
                     fig = px.bar(
